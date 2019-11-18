@@ -1,0 +1,14 @@
+Configure miss: CFLocaleCopyPreferredLanguages
+Configure miss: whether GSL needs -fgnu89-inline to link
+Configure miss: __fseterr
+Configure miss: crtdefs.h
+Configure miss: whether printf supports the 'n' directive
+Configure miss: whether C symbols are prefixed with underscore at the linker level
+Configure miss: whether to activate relocatable installation
+Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
+Configure miss: __mktime_internal
+Configure miss: whether snprintf fully supports the 'n' directive
+Configure miss: whether localtime loops forever near extrema
+Configure miss: timezone_t
+Configure miss: whether tzset clobbers localtime buffer
+Configure miss: fpsetmask
