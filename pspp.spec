@@ -6,7 +6,7 @@
 #
 Name     : pspp
 Version  : 1.2.0
-Release  : 1
+Release  : 2
 URL      : http://gnu.spinellicreations.com/pspp/pspp-1.2.0.tar.gz
 Source0  : http://gnu.spinellicreations.com/pspp/pspp-1.2.0.tar.gz
 Source1 : http://gnu.spinellicreations.com/pspp/pspp-1.2.0.tar.gz.sig
