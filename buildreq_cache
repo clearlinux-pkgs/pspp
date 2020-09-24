@@ -1,6 +1,5 @@
-1.2.0
+1.4.1
 glibc-locale
 graphviz
 postgresql-dev
-readline-dev
 texinfo

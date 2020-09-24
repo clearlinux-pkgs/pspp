@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x85199DE8C6648E90 (blp@gnu.org)
 #
 Name     : pspp
-Version  : 1.2.0
-Release  : 2
-URL      : http://gnu.spinellicreations.com/pspp/pspp-1.2.0.tar.gz
-Source0  : http://gnu.spinellicreations.com/pspp/pspp-1.2.0.tar.gz
-Source1 : http://gnu.spinellicreations.com/pspp/pspp-1.2.0.tar.gz.sig
+Version  : 1.4.1
+Release  : 3
+URL      : https://mirrors.kernel.org/gnu/pspp/pspp-1.4.1.tar.gz
+Source0  : https://mirrors.kernel.org/gnu/pspp/pspp-1.4.1.tar.gz
+Source1  : https://mirrors.kernel.org/gnu/pspp/pspp-1.4.1.tar.gz.sig
 Summary  : a program for statistical analysis of sampled data
 Group    : Development/Tools
 License  : CC-BY-SA-3.0 GPL-3.0
@@ -37,6 +37,7 @@ BuildRequires : pkgconfig(pangocairo)
 BuildRequires : pkgconfig(spread-sheet-widget)
 BuildRequires : postgresql-dev
 BuildRequires : readline-dev
+BuildRequires : ssw-dev
 BuildRequires : texinfo
 
 %description
@@ -114,33 +115,33 @@ man components for the pspp package.
 
 
 %prep
-%setup -q -n pspp-1.2.0
-cd %{_builddir}/pspp-1.2.0
+%setup -q -n pspp-1.4.1
+cd %{_builddir}/pspp-1.4.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1574100360
+export SOURCE_DATE_EPOCH=1600987285
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1574100360
+export SOURCE_DATE_EPOCH=1600987285
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pspp
-cp %{_builddir}/pspp-1.2.0/COPYING %{buildroot}/usr/share/package-licenses/pspp/842745cb706f8f2126506f544492f7a80dbe29b3
-cp %{_builddir}/pspp-1.2.0/perl-module/COPYING %{buildroot}/usr/share/package-licenses/pspp/842745cb706f8f2126506f544492f7a80dbe29b3
-cp %{_builddir}/pspp-1.2.0/src/ui/gui/icons/COPYING_CCBYSA3 %{buildroot}/usr/share/package-licenses/pspp/2995e7d53219d710383087253fb9a1e760e44f35
+cp %{_builddir}/pspp-1.4.1/COPYING %{buildroot}/usr/share/package-licenses/pspp/842745cb706f8f2126506f544492f7a80dbe29b3
+cp %{_builddir}/pspp-1.4.1/perl-module/COPYING %{buildroot}/usr/share/package-licenses/pspp/842745cb706f8f2126506f544492f7a80dbe29b3
+cp %{_builddir}/pspp-1.4.1/src/ui/gui/icons/COPYING_CCBYSA3 %{buildroot}/usr/share/package-licenses/pspp/2995e7d53219d710383087253fb9a1e760e44f35
 %make_install
 %find_lang pspp
 
@@ -152,23 +153,21 @@ cp %{_builddir}/pspp-1.2.0/src/ui/gui/icons/COPYING_CCBYSA3 %{buildroot}/usr/sha
 /usr/bin/pspp
 /usr/bin/pspp-convert
 /usr/bin/pspp-dump-sav
+/usr/bin/pspp-output
 /usr/bin/psppire
 
 %files data
 %defattr(-,root,root,-)
-/usr/share/appdata/pspp.appdata.xml
-/usr/share/applications/pspp.desktop
+/usr/share/applications/org.fsf.pspp.desktop
 /usr/share/icons/hicolor/16x16/apps/pspp.png
 /usr/share/icons/hicolor/16x16/mimetypes/application-x-spss-por.png
 /usr/share/icons/hicolor/16x16/mimetypes/application-x-spss-sav.png
 /usr/share/icons/hicolor/16x16/mimetypes/application-x-spss-sps.png
 /usr/share/icons/hicolor/16x16/mimetypes/application-x-spss-zsav.png
-/usr/share/icons/hicolor/22x22/apps/pspp.png
 /usr/share/icons/hicolor/22x22/mimetypes/application-x-spss-por.png
 /usr/share/icons/hicolor/22x22/mimetypes/application-x-spss-sav.png
 /usr/share/icons/hicolor/22x22/mimetypes/application-x-spss-sps.png
 /usr/share/icons/hicolor/22x22/mimetypes/application-x-spss-zsav.png
-/usr/share/icons/hicolor/24x24/apps/pspp.png
 /usr/share/icons/hicolor/24x24/mimetypes/application-x-spss-por.png
 /usr/share/icons/hicolor/24x24/mimetypes/application-x-spss-sav.png
 /usr/share/icons/hicolor/24x24/mimetypes/application-x-spss-sps.png
@@ -189,6 +188,8 @@ cp %{_builddir}/pspp-1.2.0/src/ui/gui/icons/COPYING_CCBYSA3 %{buildroot}/usr/sha
 /usr/share/icons/hicolor/48x48/mimetypes/application-x-spss-sps.png
 /usr/share/icons/hicolor/48x48/mimetypes/application-x-spss-zsav.png
 /usr/share/icons/hicolor/scalable/apps/pspp.svg
+/usr/share/metainfo/org.fsf.pspp.metainfo.xml
+/usr/share/mime-packages/pspp.xml
 /usr/share/pspp/aggregate.ui
 /usr/share/pspp/autorecode.ui
 /usr/share/pspp/barchart.ui
@@ -265,8 +266,8 @@ cp %{_builddir}/pspp-1.2.0/src/ui/gui/icons/COPYING_CCBYSA3 %{buildroot}/usr/sha
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/pspp/libpspp-1.2.0.so
-/usr/lib64/pspp/libpspp-core-1.2.0.so
+/usr/lib64/pspp/libpspp-1.4.1.so
+/usr/lib64/pspp/libpspp-core-1.4.1.so
 /usr/lib64/pspp/libpspp-core.so
 /usr/lib64/pspp/libpspp.so
 
@@ -279,6 +280,7 @@ cp %{_builddir}/pspp-1.2.0/src/ui/gui/icons/COPYING_CCBYSA3 %{buildroot}/usr/sha
 %defattr(0644,root,root,0755)
 /usr/share/man/man1/pspp-convert.1
 /usr/share/man/man1/pspp-dump-sav.1
+/usr/share/man/man1/pspp-output.1
 /usr/share/man/man1/pspp.1
 /usr/share/man/man1/psppire.1
 

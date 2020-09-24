@@ -1,8 +1,96 @@
 PSPP NEWS -- history of user-visible changes.
-Copyright (C) 1996-2000, 2008-2016, 2017 Free Software Foundation, Inc.
+Copyright (C) 1996-2000, 2008-2016, 2017, 2019, 2020 Free Software Foundation, Inc.
 See the end for copying conditions.
 
 Please send PSPP bug reports to bug-gnu-pspp@gnu.org.
+
+Changes from 1.4.0 to 1.4.1:
+
+ * Bug fixes.
+
+ * Translation updates.
+
+ * HTML output is now HTML5 instead of HTML4.0 Transitional.
+
+ * The HOST command has been reimplemented.  It now supports TIMELIMIT.
+
+Changes from 1.2.0 to 1.4.0:
+
+ * The file pspp-mode.el (the pspp-mode for Emacs) is no longer distributed
+   with PSPP.  Instead, it can be installed directly in emacs and is available
+   from https://elpa.gnu.org/packages/pspp-mode.html
+
+ * The Find dialog box, when searching for numeric values, will match only
+   to the precision of the variable's print format.  This avoids behaviour
+   which is surprising to some users.
+
+ * PSPP now supports the SPSS viewer (.spv) format that SPSS 16 and later
+   use to save the contents of its output editor:
+
+   - PSPP and PSPPIRE can write output to .spv files.
+
+   - The new utility pspp-output can convert .spv files to other formats.
+
+   - The pspp-convert utility can now decrypt encrypted .spv files.  The
+     encrypted viewer file format is unacceptably insecure, so to
+     discourage its use PSPP and PSPPIRE do not directly read or write
+     this format.
+
+ * A bug where the Data|Select Cases|Random Sample menu would generate
+   invalid syntax has been fixed.
+
+ * FREQUENCIES will emit a warning if one or more weight values are missing.
+
+ * Plain text output is no longer divided into pages, since it is now
+   rarely printed on paper.
+
+ * pspp-convert improvements:
+
+   - New "-a", "-l", "--password-list" options to search for an
+     encrypted file's password.
+
+   - New "--keep" and "--drop" options to output only selected variables.
+
+   - New "--recode", "--no-var-name", "--labels", "--print-formats",
+     "--decimal", "--delimiter", and "--qualifier" options to control
+     CSV output.
+
+ * Improvements to SAVE DATA COLLECTION support for MDD files.
+
+ * Bug fix for CVE-2018-20230.
+
+ * The /RENAME subcommand in SAVE TRANSLATE et al. has been extended
+   to support the syntax also accepted by other software.
+
+ * The EXAMINE command will now perform the Shapiro-Wilk test when
+   one or more plots are requested.
+
+ * The REGRESSION command now supports the /STATISTICS=TOL option which
+   outputs tolerance and variance inflation factor metrics for the data.
+
+ * The QUICK CLUSTER command now supports the /SAVE option which can
+   be used to save the cases' cluster membership and/or their distance
+   from the cluster centre to the active file.
+
+ * The MEANS command has been re-implemented.
+
+ * The GUI now has a sub-dialog for post-hoc tests of the oneway
+   anova test.
+
+ * Gtk+3.22.0 or later must now be used when building.
+
+ * GRAPH: Categorical barcharts displaying percentages now show the
+   sub-category as a percentage of the primary category instead of the
+   total.
+
+ * The Syntax Window now has a Find function to perform simple text
+   searching.
+
+ * AUTORECODE:
+
+   - The PRINT subcommand is now implemented.
+
+   - Many bug fixes.
 
 Changes from 1.0.1 to 1.2.0:
 
@@ -126,7 +214,7 @@ Changes from 0.8.5 to 0.10.0:
 
  * The graphical user interface (psppire) has been changed as follows:
 
-   - It now uses Gtk+ version 3 instead of version 2.  Accordingly, it has a 
+   - It now uses Gtk+ version 3 instead of version 2.  Accordingly, it has a
      somewhat different look and feel.
 
    - There is now a Graphs menu to access the GRAPH command.
@@ -373,7 +461,7 @@ Changes from 0.6.2 to 0.8.0:
    - DO REPEAT command has been reimplemented.  Now, when DO REPEAT
      contains an INCLUDE or INSERT command, substitutions are not
      applied to the included file.
-  
+
    - FILE HANDLE has a new ENDS subcommand to select CR or CRLF new-lines.
 
    - HOST has been updated to use more modern syntax.
@@ -387,7 +475,7 @@ Changes from 0.6.2 to 0.8.0:
    - ONEWAY: the POSTHOC subcommand is now implemented.
 
    - The following new subcommands to NPAR TESTS have been implemented:
-     COCHRAN, FRIEDMAN, JONCKHEERE-TERPSTRA, KENDALL, KRUSKAL-WALLIS, MANN-WHITNEY, 
+     COCHRAN, FRIEDMAN, JONCKHEERE-TERPSTRA, KENDALL, KRUSKAL-WALLIS, MANN-WHITNEY,
      MCNEMAR, SIGN, WILCOXON, and RUNS
 
    - SET and SHOW no longer have ENDCMD, NULLINE, PROMPT, CPROMPT, and

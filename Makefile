@@ -1,5 +1,5 @@
 PKG_NAME := pspp
-URL = http://gnu.spinellicreations.com/pspp/pspp-1.2.0.tar.gz
+URL = https://mirrors.kernel.org/gnu/pspp/pspp-1.4.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

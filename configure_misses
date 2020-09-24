@@ -1,14 +1,25 @@
+Configure miss: whether the compiler is clang
+Configure miss: compiler option needed when checking for declarations
+Configure miss: whether makeinfo generates broken DocBook XML
 Configure miss: CFLocaleCopyPreferredLanguages
 Configure miss: whether GSL needs -fgnu89-inline to link
-Configure miss: __fseterr
 Configure miss: crtdefs.h
+Configure miss: memset_s
+Configure miss: __fseterr
+Configure miss: whether the compiler produces multi-arch binaries
 Configure miss: whether printf supports the 'n' directive
+Configure miss: fake locale system (OpenBSD)
+Configure miss: Solaris 11.4 locale system
 Configure miss: whether C symbols are prefixed with underscore at the linker level
 Configure miss: whether to activate relocatable installation
 Configure miss: whether pthread_rwlock_rdlock prefers a writer to a reader
+Configure miss: whether mbrtowc stores incomplete characters
 Configure miss: __mktime_internal
+Configure miss: working re_compile_pattern
 Configure miss: whether snprintf fully supports the 'n' directive
+Configure miss: sys/single_threaded.h usability
+Configure miss: sys/single_threaded.h presence
+Configure miss: sys/single_threaded.h
 Configure miss: whether localtime loops forever near extrema
 Configure miss: timezone_t
-Configure miss: whether tzset clobbers localtime buffer
 Configure miss: fpsetmask
