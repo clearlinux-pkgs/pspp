@@ -6,7 +6,7 @@
 #
 Name     : pspp
 Version  : 1.4.1
-Release  : 3
+Release  : 4
 URL      : https://mirrors.kernel.org/gnu/pspp/pspp-1.4.1.tar.gz
 Source0  : https://mirrors.kernel.org/gnu/pspp/pspp-1.4.1.tar.gz
 Source1  : https://mirrors.kernel.org/gnu/pspp/pspp-1.4.1.tar.gz.sig
